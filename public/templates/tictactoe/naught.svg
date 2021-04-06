@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200"
+     height="200" 
+     viewBox="-100 -100 200 200" 
+     xmlns="http://www.w3.org/2000/svg">
+    <circle cx="0" cy="0" r="80"
+            stroke-width="35"
+            stroke="black"
+            fill="none"/>
+    <circle cx="0" cy="0" r="80"
+            stroke-width="30"
+            stroke="orange" 
+            fill="none"/>
+</svg>

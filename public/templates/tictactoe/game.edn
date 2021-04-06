@@ -1,0 +1,52 @@
+{:label       "Tic Tac Toe"
+ :description "Tic Tac Toe"
+ :rules       "url..."
+ :about       "Notice: display this at the start of the game/somewhere on screen?"
+ :players     ["required" "optional"] ; promote each to map?
+ :places      {:holding  {:places {"user_id_1" {:pieces []}}} ; max 1
+               :board    {:label  "Board"
+                          :image  "./templates/tictactoe/board.svg"
+                          :xy     [0 -40]
+                          :size   100 ; optional - default is _ ???
+                          :visibility {:default {:show "as-is"}}
+                          :places {:sq-0-0 {:xy [-66 -66] :pieces []}
+                                   :sq-1-0 {:xy [0 -66] :pieces []}
+                                   :sq-2-0 {:xy [66 -66] :pieces []}
+                                   :sq-0-1 {:xy [-66 0] :pieces []}
+                                   :sq-1-1 {:xy [0 0] :pieces []}
+                                   :sq-2-1 {:xy [66 0] :pieces []}
+                                   :sq-0-2 {:xy [-66 66] :pieces []}
+                                   :sq-1-2 {:xy [0 66] :pieces []}
+                                   :sq-2-2 {:xy [66 66] :pieces []}}}
+
+               :player-0 {:label      "Your pieces"
+                          ; :visibility
+                          ; {:show     :as-is | :face-up | :hidden
+                          ;  :counted  :no | :yes e.g. "x3" | :estimate e.g. 1: "", 2-5: "a few", 6+: "many"
+                          ;  :arrange  :stack | :spread}
+                          :visibility {#{0}     {:show    "as-is"
+                                                 :counted "yes"
+                                                 :arrange "stack"}
+                                       :default {:show "hidden"}}
+                          :xy         [0 50]
+                          ;:queue      :fifo ; or :shuffled? or key to sort-by? - should be re-arrangeable in the UI?
+                          ;:on-arrival :face-down ; or :face-up or :randomise or :as-is? (just miss the key in that last case?)
+                          :set-rotation 0
+                          :insert-at  :top ; :bottom, :random
+                          :pieces     [{:id "p-0" :label "Naught" :sides [{:image "./templates/tictactoe/naught.svg" :face true}] :rotation 0}
+                                       {:id "p-1" :label "Naught" :sides [{:image "./templates/tictactoe/naught.svg"}]}
+                                       {:id "p-2" :label "Naught" :sides [{:image "./templates/tictactoe/naught.svg"}]}
+                                       {:id "p-3" :label "Naught" :sides [{:image "./templates/tictactoe/naught.svg"}]}
+                                       {:id "p-4" :label "Naught" :sides [{:image "./templates/tictactoe/naught.svg"}]}]}
+
+               :player-1 {:label      "Your pieces"
+                          :visibility {#{1}     {:show    "as-is"
+                                                 :counted "yes"
+                                                 :arrange "stack"}
+                                       :default {:show "hidden"}}
+                          :xy         [0 50]
+                          :pieces     [{:id "p-5" :label "Cross" :sides [{:image "./templates/tictactoe/cross.svg"}]}
+                                       {:id "p-6" :label "Cross" :sides [{:image "./templates/tictactoe/cross.svg"}]}
+                                       {:id "p-7" :label "Cross" :sides [{:image "./templates/tictactoe/cross.svg"}]}
+                                       {:id "p-8" :label "Cross" :sides [{:image "./templates/tictactoe/cross.svg"}]}
+                                       {:id "p-9" :label "Cross" :sides [{:image "./templates/tictactoe/cross.svg"}]}]}}}
